@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400&family=Secular+One&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.to-do_app{
+    display: grid;
+    grid-template-columns: 250px auto;
+    height: 100vh;
+}
+
+.sidebar{
+    background-color: #fff;
+   
+}
+
+.top{
+    height: 174px;
+    width: 100%;
+    box-shadow: 0 1px 10px -5px;
+    padding-top: 40px;
+}
+
+.top > .logo{
+    padding: 0px 40px;
+}
+
+.logo{  
+    font-family: 'Secular One',
+    sans-serif;
+    margin-bottom: 40px;
+}
+
+.add-task_button{
+    padding: 0px 40px
+}
+
+.add-task_button > button{  
+    height: 30px;
+    border: none;
+    background-color: #fff;
+    width: 80%;
+ ;
+    background-color: sandybrown;
+    border-radius: 10px;
+}
+
+.display_to-do{
+    background-color: #f7f5f5;
+    font-family: 'Secular One',
+    sans-serif;
+}
+
+.short_header{
+    margin-top: 25px;
+}
+
+.short_header > h2{
+    font-family: 'Merriweather Sans',
+    sans-serif;
+    text-align: center;
+}
