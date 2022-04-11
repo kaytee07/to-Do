@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400&family=Montserrat:wght@100;200&family=Open+Sans:wght@300;400&family=Secular+One&display=swap');
 
 *{
     padding: 0;
@@ -25,38 +24,44 @@
     padding-top: 40px;
 }
 
-.top > .logo{
-    padding: 0px 40px;
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo{  
-    font-family: 'Secular One',
+    font-family: 'Merriweather Sans',
     sans-serif;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .add-task_button{
     padding: 0px 40px
 }
 
-.add-task_button > button{  
+.add{  
     height: 30px;
     border: none;
     background-color: #fff;
-    width: 80%;
- ;
+    width: 120px;
     background-color: sandybrown;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .display_to-do{
     background-color: #f7f5f5;
+    height:100vh ;
+    
     font-family: 'Secular One',
     sans-serif;
 }
 
 .short_header{
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 .short_header > h2{
@@ -64,3 +69,323 @@
     sans-serif;
     text-align: center;
 }
+.short_header > button{
+    margin-left: 5px;
+    border-radius: 50%;
+    width: 30px;
+    border: none;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans',
+    sans-serif;
+}
+
+.product_list > .add{
+    margin-top: 13px;
+}
+
+.items{
+    display: block;
+    margin-top: 13px;
+    list-style: none;
+    width: 100%;
+}
+
+.item{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: #d8d8d8;
+}
+
+.modal_task{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 30vw;
+    height: 59vh;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-family: 'Open Sans',
+    sans-serif;
+    border-radius: 5px;
+}
+
+
+.note-label{
+    text-align: left;
+}
+
+.due-date{
+    margin-bottom: 10px;
+}
+
+.due-date > h4{
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: 'Open Sans',
+    sans-serif;
+}
+
+.setPriority{
+    margin-bottom: 10px;
+}
+
+.setPriority>h4{
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: 'Open Sans',
+    sans-serif;
+}
+
+.setProject>h4 {
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: 'Open Sans',
+        sans-serif;
+}
+
+.due-date>h5 {
+    text-align: left;
+    font-weight: 200;
+    color:#49a4ff;
+    cursor: pointer;;
+}
+
+.setPriority>h5 {
+    text-align: left;
+    font-weight: 200;
+    color: #49a4ff;
+    cursor: pointer;
+}
+
+.setProject>h5 {
+    text-align: left;
+    font-weight: 200;
+    color: #49a4ff;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.modal_task > input{
+    height: 34px;
+    border: none;  
+    padding-left: 5px;
+}
+
+.modal_task>input:focus{
+    outline: none;
+}
+
+.modal_task>input::placeholder{
+    color: #d8d8d8;
+    font-family: 'Merriweather Sans',
+    sans-serif;
+    margin-bottom: 10px;
+}
+
+.modal_task>textarea{
+    margin-top: 10px;
+    border:none ;
+    background-color: #f1eded;
+    padding-left: 2px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal_task>textarea:focus {
+    outline: none;
+}
+
+.modal_task>textarea::placeholder {
+    color: #d8d8d8;
+    font-family: 'Merriweather Sans',
+        sans-serif;
+    margin-bottom: 10px;
+}
+
+.modal_task>input:hover{
+    border-radius: 5px;
+    background-color: #f1eded;
+}
+
+.modal_task > button{
+    margin: 0 auto;
+}
+
+/* modal_product */
+
+.modal_product{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 30vw;
+    height: 19vh;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-family: 'Open Sans',
+        sans-serif;
+    border-radius: 5px;
+}
+
+.modal_product>input {
+    height: 34px;
+    border: none;
+    padding-left: 5px;
+    border-radius: 5px;
+    background-color: #f1eded;
+}
+
+.modal_product>input:focus {
+    outline: none;
+}
+
+.modal_product>input::placeholder {
+    color: #d8d8d8;
+    font-family: 'Merriweather Sans',
+        sans-serif;
+    margin-bottom: 10px;
+}
+
+.modal_product>input:hover {
+    border-radius: 5px;
+    background-color: #f1eded;
+}
+
+.modal_product > .add{
+    margin: 20px auto;
+}
+
+/* modal_due-date */
+
+.modal_due-date {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 30vw;
+    height: 200px;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-family: 'Open Sans',
+        sans-serif;
+    border-radius: 5px;
+}
+
+.modal_due-date> .time-box >input {
+    margin-top: 18px;
+    height: 34px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f1eded;
+    width: 200px;
+}
+
+.modal_due-date>input:focus {
+    outline: none;
+}
+
+.modal_due-date>input::placeholder {
+    color: #d8d8d8;
+    font-family: 'Merriweather Sans',
+        sans-serif;
+    margin-bottom: 10px;
+}
+
+.modal_due-date>input:hover {
+    border-radius: 5px;
+    background-color: #f1eded;
+}
+
+.modal_due-date>.add {
+    margin: 0px auto;
+    margin-top: 18px;
+}
+
+/* modal_priority-col */
+
+.modal_priority-col {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 30vw;
+    height: 200px;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-family: 'Open Sans',
+        sans-serif;
+    border-radius: 5px;
+}
+
+.time-box > div{
+    height: 30px;
+    margin-bottom:5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.urgent{
+    margin-top: 10px;
+    background-color: rgb(255, 61, 86);
+}
+
+.necessary{
+    background-color: rgb(249, 210, 31);
+}
+
+.normal {
+    margin-bottom: 10px !important;
+    background: rgb(47, 193, 74);
+}
+
+.modal_priority-col > .add{
+    margin: 0px auto;
+}
+
+/* active */
+
+.active{
+    display: flex;
+}
+
