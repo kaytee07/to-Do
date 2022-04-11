@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/style.css">
+    <!-- <link rel="stylesheet" href="../src/style.css"> -->
     <title>.to-do</title>
 </head>
 <body>
@@ -12,29 +12,114 @@
         <section class="sidebar">
             <div class="top">
                 <div class="logo">
-                    <h4>.to-Do</h4>
+                    <h2>.to-Do</h2>
                 </div>     
                 <div class="add-task_button">
-                    <button class="">+ add a to-Do</button>
+                    <button class="add">+ add a to-Do</button>
                 </div>
             </div>
             <div class="bottom">
                 <div class="shortcut">
                     <div class="short_header">
-                        <i class="bi bi-chevron-up"></i>
                         <h2>Shortcuts</h2>
+                        <button><i class="bi bi-chevron-up"></i></button> 
+                    </div>
+                    <div class="shortcut_list list">
+                        <ul class="items">
+                            <li class="item">Today</li>
+                            <li class="item">Next 7 days</li>
+                            <li class="item">All Tasks</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="project">
-
+                    <div class="short_header">
+                        <h2>Project</h2>
+                        <button><i class="bi bi-chevron-up"></i></button>
+                    </div>
+                    <div class="product_list list">
+                    <button class="add">+ add a project</button>
+                    <ul class="items">
+                        <li class="item">Personal</li>
+                        <li class="item">Development</li>
+                        <li class="item">Holiday</li>
+                    </ul>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="display_to-do">
-            <!-- <div class="logo">
-                <h4>woman</h4>
-            </div> -->
+           <div class="to-do_title">
+               <h3>Project</h3>
+               <ul class="todos">
+                   <li>
+                        <input type="checkbox">
+                        <p>Go to the beach</p>
+                   </li>
+                <li>
+                    <input type="checkbox">
+                    <p>Go to the beach</p>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <p>Go to the beach</p>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <p>Go to the beach</p>
+                </li>
+               </ul>
+           </div>
         <section>
+        
+        <!-- <div class="modal_task">
+            <input type="text" class="add-to-do" placeholder="add a .to-Do....">
+            <label class="note-label" for="note">Note</label>
+            <textarea placeholder="add your note here..." name="" id="note" cols="10" rows="5"></textarea>
+            <div class="due-date">
+                <h4>Due Date</h4>
+                <h5>Set due date</h5>
+            </div>
+            <div class="setPriority">
+                <h4>priority</h4>
+                <h5>Set Priority</h5>
+            </div>
+            <div class="setProject">
+                <h4>Choose Project</h4>
+                <h5>add to a Project</h5>
+            </div>
+            <button class="add">Add task</button>
+        </div> -->
+
+        <!-- <div class="modal_due-date">
+            <div class="set_due-date">
+                <h4>Set due date and time</h4>
+            </div>
+            <div class="time-box">
+                <input type="time" class="add-time" placeholder="Project title...">
+                <input type="date" class="add-date" placeholder="Project title...">
+            </div>
+            <button class="add date">Add task</button>
+        </div> -->
+
+        <!-- <div class="modal_priority-col">
+            <div class="set_due-date">
+                <h4>Set Priority</h4>
+            </div>
+            <div class="time-box">
+                <div class="urgent">Urgent</div> 
+                <div class="necessary">Necessary</div>
+                <div class="normal">Normal</div>
+            </div>
+            <button class="add priority">Set Priority</button>
+        </div> -->
+
+        <!-- <div class="modal_product">
+            <input type="text" class="add-to-do" placeholder="Project title...">
+            <button class="add">Add task</button>
+        </div> -->
+
+
     </div>
 
     <script src="main.js"></script>
