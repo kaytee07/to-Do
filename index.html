@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../src/style.css"> -->
+    <!-- <li class="to-dos"nk rel="stylesheet" href="../src/style.css"> -->
     <title>.to-do</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
                     <h2>.to-Do</h2>
                 </div>     
                 <div class="add-task_button">
-                    <button class="add">+ add a to-Do</button>
+                    <button class="add atodo">+ add a to-Do</button>
                 </div>
             </div>
             <div class="bottom">
@@ -25,10 +25,10 @@
                         <button><i class="bi bi-chevron-up"></i></button> 
                     </div>
                     <div class="shortcut_list list">
-                        <ul class="items">
-                            <li class="item">Today</li>
-                            <li class="item">Next 7 days</li>
-                            <li class="item">All Tasks</li>
+                        <ul class="items static">
+                            <!-- <li  class="item">Today</li>
+                            <li  class="item">Next 7 days</li>
+                            <li  class="item">All Tasks</li> -->
                         </ul>
                     </div>
                 </div>
@@ -37,45 +37,75 @@
                         <h2>Project</h2>
                         <button><i class="bi bi-chevron-up"></i></button>
                     </div>
+                    <div class="addButton">
+                        <button class="add aproject">+ add a project</button>
+                    </div>
                     <div class="product_list list">
-                    <button class="add">+ add a project</button>
-                    <ul class="items">
-                        <li class="item">Personal</li>
-                        <li class="item">Development</li>
-                        <li class="item">Holiday</li>
+                    <ul class="items non-static">
+                        <li id="folder" class="item">Personal</li>
+                        <li id="folder"  class="item">Development</li>
+                        <li id="folder"  class="item">Holiday</li>
                     </ul>
                     </div>
                 </div>
             </div>
         </section>
         <section class="display_to-do">
-           <div class="to-do_title">
-               <h3>Project</h3>
+           <div class="to-do_box">
+               <div class="to-do_title">
+                    <h2>Project</h2>
+               </div>
                <ul class="todos">
-                   <li>
-                        <input type="checkbox">
-                        <p>Go to the beach</p>
+                   <!-- <li class="to-dos">
+                       <div class="left-side">
+                           <i class="bi bi-check-lg"></i>
+                           <p>Go to the beach</p>
+                        </div>    
+                        <div class="right-side">
+                            <i class="bi bi-pencil-fill"></i>
+                            <i class="bi bi-trash3-fill"></i>
+                        </div>
                    </li>
-                <li>
-                    <input type="checkbox">
-                    <p>Go to the beach</p>
+                <li class="to-dos">
+                    <div class="left-side">
+                        <i class="bi bi-check-lg"></i>
+                        <p>Go to the beach</p>
+                    </div>
+                    <div class="right-side">
+                        <i class="bi bi-pencil-fill"></i>
+                        <i class="bi bi-trash3-fill"></i>
+                    </div>
                 </li>
-                <li>
-                    <input type="checkbox">
-                    <p>Go to the beach</p>
+                <li class="to-dos">
+                    <div class="left-side">
+                        <i class="bi bi-check-lg"></i>
+                        <p>Go to the beach</p>
+                    </div>
+                    <div class="right-side">
+                        <i class="bi bi-pencil-fill"></i>
+                        <i class="bi bi-trash3-fill"></i>
+                    </div>
                 </li>
-                <li>
-                    <input type="checkbox">
-                    <p>Go to the beach</p>
-                </li>
+                <li class="to-dos">
+                    <div class="left-side">
+                        <i class="bi bi-check-lg"></i>
+                        <p>Go to the beach</p>
+                    </div>
+                    <div class="right-side">
+                        <i class="bi bi-pencil-fill"></i>
+                        <i class="bi bi-trash3-fill"></i>
+                    </div>
+                </li> -->
                </ul>
            </div>
         <section>
         
-        <!-- <div class="modal_task">
+        <div class="modal_task">
             <input type="text" class="add-to-do" placeholder="add a .to-Do....">
-            <label class="note-label" for="note">Note</label>
-            <textarea placeholder="add your note here..." name="" id="note" cols="10" rows="5"></textarea>
+            <div class="setProject">
+                <h4>Choose Project</h4>
+                <h5>add to a Project</h5>
+            </div>
             <div class="due-date">
                 <h4>Due Date</h4>
                 <h5>Set due date</h5>
@@ -84,14 +114,10 @@
                 <h4>priority</h4>
                 <h5>Set Priority</h5>
             </div>
-            <div class="setProject">
-                <h4>Choose Project</h4>
-                <h5>add to a Project</h5>
-            </div>
-            <button class="add">Add task</button>
-        </div> -->
+            <button class="add addtask">Add task</button>
+        </div> 
 
-        <!-- <div class="modal_due-date">
+        <div class="modal_due-date">
             <div class="set_due-date">
                 <h4>Set due date and time</h4>
             </div>
@@ -99,25 +125,37 @@
                 <input type="time" class="add-time" placeholder="Project title...">
                 <input type="date" class="add-date" placeholder="Project title...">
             </div>
-            <button class="add date">Add task</button>
-        </div> -->
+            <button class="add date">Done</button>
+        </div>
 
-        <!-- <div class="modal_priority-col">
+        <div class="modal_priority-col">
             <div class="set_due-date">
                 <h4>Set Priority</h4>
             </div>
-            <div class="time-box">
-                <div class="urgent">Urgent</div> 
-                <div class="necessary">Necessary</div>
-                <div class="normal">Normal</div>
+            <div class="time-box priorities">
+                <div class="urgency urgent">Urgent</div> 
+                <div class="urgency necessary">Necessary</div>
+                <div class="urgency normal">Normal</div>
             </div>
             <button class="add priority">Set Priority</button>
-        </div> -->
+        </div>
 
-        <!-- <div class="modal_product">
+        <div class="modal_folders">
+            <div class="set_due-date">
+                <h4>Folders</h4>
+            </div>
+            <div class="time-box fold">
+                <div class="">Folders</div>
+                <div class="">Folders</div>
+                <div class="">Folders</div>
+                <div class="">Folders</div>
+            </div>
+        </div>
+
+        <div class="modal_product">
             <input type="text" class="add-to-do" placeholder="Project title...">
-            <button class="add">Add task</button>
-        </div> -->
+            <button class="add atask">Add task</button>
+        </div>
 
 
     </div>
