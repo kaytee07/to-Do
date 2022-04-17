@@ -52,7 +52,7 @@
 
 .display_to-do{
     background-color: #f7f5f5;
-    height:100vh ;
+    height:100% ;
     
     font-family: 'Secular One',
     sans-serif;
@@ -80,6 +80,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    font-family: 'Open Sans',
+    sans-serif;
+    overflow-y: scroll;
+    height: 125px;
+}
+
+.addButton{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     font-family: 'Open Sans',
     sans-serif;
@@ -100,7 +112,7 @@
     height: 40px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     cursor: pointer;
 }
 
@@ -110,7 +122,7 @@
 
 .modal_task{
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     margin: auto;
     position: absolute;
@@ -234,7 +246,7 @@
 
 .modal_product{
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     margin: auto;
     position: absolute;
@@ -250,6 +262,7 @@
     font-family: 'Open Sans',
         sans-serif;
     border-radius: 5px;
+   
 }
 
 .modal_product>input {
@@ -258,6 +271,7 @@
     padding-left: 5px;
     border-radius: 5px;
     background-color: #f1eded;
+    margin-bottom: 20px;
 }
 
 .modal_product>input:focus {
@@ -277,14 +291,14 @@
 }
 
 .modal_product > .add{
-    margin: 20px auto;
+    margin: 0px auto;
 }
 
 /* modal_due-date */
 
 .modal_due-date {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     margin: auto;
     position: absolute;
@@ -333,11 +347,49 @@
     margin-top: 18px;
 }
 
+/* modal_folders */
+
+.modal_folders {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 30vw;
+    height: 230px;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-family: 'Open Sans',
+        sans-serif;
+    border-radius: 5px;
+}
+
+.time-box.fold{
+    margin-top: 10px;
+    height: 150px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.time-box.fold > div{
+    margin-bottom: 10px;
+    background-color: #d8d8d8;
+}
+
+.toFolder{
+    margin: 0px auto;
+}
+
 /* modal_priority-col */
 
 .modal_priority-col {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     margin: auto;
     position: absolute;
@@ -388,4 +440,49 @@
 .active{
     display: flex;
 }
+
+/* to-di division */
+
+.to-do_box{ 
+    padding-left: 30px;
+    margin-top: 100px;
+}
+
+.to-do_title{
+    margin-bottom: 72px;
+}
+
+.todos{
+    list-style: none;
+}
+
+.to-dos{
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 80%;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.left-side{
+    display: flex;
+}
+
+.bi-trash3-fill{
+    margin-left:10px;
+    cursor: pointer;
+}
+
+.bi-check-lg{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
 
