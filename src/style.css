@@ -111,13 +111,19 @@
 .item{
     height: 40px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
     cursor: pointer;
 }
 
 .item:hover{
     background-color: #d8d8d8;
+}
+
+.bi-x-circle{
+    display: flex;
+    justify-content: end;
 }
 
 .modal_task{
@@ -131,13 +137,14 @@
     bottom: 0;
     right: 0;
     text-align: center;
-    width: 30vw;
-    height: 59vh;
+    width: 300px;
+    height: fit-content;
     background-color: #fff;
     padding: 10px 20px;
     font-family: 'Open Sans',
     sans-serif;
     border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 
@@ -255,13 +262,14 @@
     bottom: 0;
     right: 0;
     text-align: center;
-    width: 30vw;
-    height: 19vh;
+    max-width: 400px;
+    height: fit-content;
     background-color: #fff;
     padding: 10px 20px;
     font-family: 'Open Sans',
         sans-serif;
     border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
    
 }
 
@@ -271,7 +279,7 @@
     padding-left: 5px;
     border-radius: 5px;
     background-color: #f1eded;
-    margin-bottom: 20px;
+    margin:10px 0;
 }
 
 .modal_product>input:focus {
@@ -307,13 +315,14 @@
     bottom: 0;
     right: 0;
     text-align: center;
-    width: 30vw;
-    height: 200px;
+    max-width: 300px;
+    height: fit-content;
     background-color: #fff;
     padding: 10px 20px;
     font-family: 'Open Sans',
         sans-serif;
     border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .modal_due-date> .time-box >input {
@@ -347,6 +356,12 @@
     margin-top: 18px;
 }
 
+/* //closeModal */
+.bi-x-circle::before{
+    cursor: pointer;
+}
+
+
 /* modal_folders */
 
 .modal_folders {
@@ -360,13 +375,14 @@
     bottom: 0;
     right: 0;
     text-align: center;
-    width: 30vw;
-    height: 230px;
+    max-width: 300px;
+    height: fit-content;
     background-color: #fff;
     padding: 10px 20px;
     font-family: 'Open Sans',
         sans-serif;
     border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .time-box.fold{
@@ -398,13 +414,14 @@
     bottom: 0;
     right: 0;
     text-align: center;
-    width: 30vw;
-    height: 200px;
+    max-width: 300px;
+    height: fit-content;
     background-color: #fff;
     padding: 10px 20px;
     font-family: 'Open Sans',
         sans-serif;
     border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .time-box > div{
@@ -479,10 +496,32 @@
     cursor: pointer;
 }
 
-.bi-check-lg{
+.bi-circle{
     margin-right: 10px;
     cursor: pointer;
 }
+
+.timeanddate{
+    display: flex;
+}
+
+.time{
+    display: flex;
+    margin-right: 10px;
+}
+
+.dates{
+    display: flex;
+}
+
+.bi-alarm{
+    margin-right: 5px;
+}
+
+.bi-calendar-event{
+    margin-right: 5px;
+}
+
 
 
 

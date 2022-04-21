@@ -1,40 +1,30 @@
 import { MainObjectBag, Project, Tasks } from "../objects"
-
+import { createFolder, createNonStaticFolder, todayOrThisWeek } from "./controllers";
 
 const App = (()=>{
 const projectShelf = MainObjectBag();
 
 function createStaticFolders(){
   const today = Project("Today");
-  const all7Days = Project("All 7 Days");
-  const allTasks = Project("All Tasks");
-  const uncompleted = Project("Uncompleted Tasks");
-  createFolder([today, all7Days, allTasks, uncompleted],projectShelf)
+  const all7Days = Project("This week");
+  createFolder([today, all7Days],projectShelf)
+}
+
+function loadStorageItemsToProject(){
+  if (localStorage.getItem("projects")){
+        JSON.parse(localStorage.getItem("projects")).map((val) => {
+          projectShelf.addNonStaticProject(val);
+        });
+  }
 }
 
 createStaticFolders();
-
-function createFolder(arr, shelf) {
-  arr.map((val) => shelf.addStaticProject(val));
-}
-
-function createNonStaticFolder(name){
-  projectShelf.addNonStaticProject(Project(name)); 
-}
-
-function homePageDecison(markup){
-document.querySelector('.display_to-do').appendChild(markup)
-}
+loadStorageItemsToProject();
+// todayOrThisWeek()
 
 
-
- 
-
- 
  return{
-   projectShelf,
-   createNonStaticFolder,
-   homePageDecison
+   projectShelf
  }
 
 

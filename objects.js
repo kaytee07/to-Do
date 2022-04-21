@@ -2,61 +2,67 @@ export const Project = function (name) {
   let projectName = name;
   let todos = [];
 
-  const getProjectName = function () {
-    return projectName;
-  };
-
-  const addTodo = function (item) {
-    todos.push(item);
-  };
-
-  const getTodos = function () {
-    return todos;
-  };
-
 
   const findTodo = function (index) {
     return todos[index];
   };
 
   return {
-    getProjectName,
-    getTodos,
-    addTodo,
+    name,
+    todos,
     findTodo,
   };
 };
 
 export const Tasks = function(todo){
   let task =  todo;
-  let notes = null;
-  let prority = null;
+  let priority = null;
   let dueTimeAndDate = {
     time:null,
     date:null
   }
+  let projectId = null
 
+  const getProjectId = function(){
+    return projectId
+  }
 
-  const displayTask = function(){
-    return task
+  const addDueTimeAndDate = function(time, date){
+    dueTimeAndDate.time = time;
+    dueTimeAndDate.date = date
+  }
+
+  const setPriority = function(info){
+    priority = info
   }
 
   return{
-    displayTask
+    task,
+    priority,
+    dueTimeAndDate,
+    projectId,
+    addDueTimeAndDate,
+    setPriority,
+    getProjectId
   }
 
 }
 
 export const MainObjectBag = function(){
-  const staticProject = [];
+  let staticProject = [];
   const nonStaticProject = []
 
   const getStaticProject = function () {
     return staticProject;
   };
+ 
 
   const getNonStaticProject = function () {
     return nonStaticProject;
+  };
+
+  const findStaticProject = function (index) {
+    return staticProject[index];
   };
 
   const findNonStaticProject = function (index) {
@@ -74,6 +80,7 @@ export const MainObjectBag = function(){
 
   return {
     getStaticProject,
+    findStaticProject,
     findNonStaticProject,
     addStaticProject,
     addNonStaticProject,

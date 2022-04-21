@@ -42,9 +42,9 @@
                     </div>
                     <div class="product_list list">
                     <ul class="items non-static">
-                        <li id="folder" class="item">Personal</li>
-                        <li id="folder"  class="item">Development</li>
-                        <li id="folder"  class="item">Holiday</li>
+                        <li id="folder" class="static item">Personal</li>
+                        <li id="folder "  class="static item">Development</li>
+                        <li id="folder"  class="static item">Holiday</li>
                     </ul>
                     </div>
                 </div>
@@ -56,51 +56,13 @@
                     <h2>Project</h2>
                </div>
                <ul class="todos">
-                   <!-- <li class="to-dos">
-                       <div class="left-side">
-                           <i class="bi bi-check-lg"></i>
-                           <p>Go to the beach</p>
-                        </div>    
-                        <div class="right-side">
-                            <i class="bi bi-pencil-fill"></i>
-                            <i class="bi bi-trash3-fill"></i>
-                        </div>
-                   </li>
-                <li class="to-dos">
-                    <div class="left-side">
-                        <i class="bi bi-check-lg"></i>
-                        <p>Go to the beach</p>
-                    </div>
-                    <div class="right-side">
-                        <i class="bi bi-pencil-fill"></i>
-                        <i class="bi bi-trash3-fill"></i>
-                    </div>
-                </li>
-                <li class="to-dos">
-                    <div class="left-side">
-                        <i class="bi bi-check-lg"></i>
-                        <p>Go to the beach</p>
-                    </div>
-                    <div class="right-side">
-                        <i class="bi bi-pencil-fill"></i>
-                        <i class="bi bi-trash3-fill"></i>
-                    </div>
-                </li>
-                <li class="to-dos">
-                    <div class="left-side">
-                        <i class="bi bi-check-lg"></i>
-                        <p>Go to the beach</p>
-                    </div>
-                    <div class="right-side">
-                        <i class="bi bi-pencil-fill"></i>
-                        <i class="bi bi-trash3-fill"></i>
-                    </div>
-                </li> -->
+                  
                </ul>
            </div>
         <section>
         
         <div class="modal_task">
+            <i class="bi bi-x-circle"></i>
             <input type="text" class="add-to-do" placeholder="add a .to-Do....">
             <div class="setProject">
                 <h4>Choose Project</h4>
@@ -118,10 +80,11 @@
         </div> 
 
         <div class="modal_due-date">
+            <i class="bi bi-x-circle"></i>
             <div class="set_due-date">
                 <h4>Set due date and time</h4>
             </div>
-            <div class="time-box">
+            <div class="time-box dateTime">
                 <input type="time" class="add-time" placeholder="Project title...">
                 <input type="date" class="add-date" placeholder="Project title...">
             </div>
@@ -129,6 +92,7 @@
         </div>
 
         <div class="modal_priority-col">
+            <i class="bi bi-x-circle"></i>
             <div class="set_due-date">
                 <h4>Set Priority</h4>
             </div>
@@ -137,10 +101,11 @@
                 <div class="urgency necessary">Necessary</div>
                 <div class="urgency normal">Normal</div>
             </div>
-            <button class="add priority">Set Priority</button>
+            <button class="add priority">Back</button>
         </div>
 
         <div class="modal_folders">
+            <i class="bi bi-x-circle"></i>
             <div class="set_due-date">
                 <h4>Folders</h4>
             </div>
@@ -153,8 +118,9 @@
         </div>
 
         <div class="modal_product">
-            <input type="text" class="add-to-do" placeholder="Project title...">
-            <button class="add atask">Add task</button>
+            <i class="bi bi-x-circle"></i>
+            <input type="text" class="add-folder" placeholder="Project title...">
+            <button class="add atask">Create folder</button>
         </div>
 
 
