@@ -51,7 +51,7 @@ export const todayOrThisWeek = function () {
     for (let j = 0; j < todos[i].length; j++) {
      if (todos[i][j].dueTimeAndDate.date){
            moveToToday(todos[i][j].dueTimeAndDate.date, todos[i][j]);
-           moveToWeek(todos[i][j].dueTimeAndDate.time, todos[i][j]);
+           moveToWeek(todos[i][j].dueTimeAndDate.date, todos[i][j]);
      }      
     }
   }
@@ -59,7 +59,7 @@ export const todayOrThisWeek = function () {
 
 
 
-const moveToToday = function(date, todo){
+export const moveToToday = function(date, todo){
       let userDateArray = date.split("-");
       const todayDate = new Date();
       let userDate = new Date(
@@ -76,7 +76,7 @@ const moveToToday = function(date, todo){
 }
 
 
-const moveToWeek = function (date, todo){
+export const moveToWeek = function (date, todo){
          let userDateArray = date.split("-");
       const todayDate = new Date();
        let first = todayDate.getDate() - todayDate.getDay();
@@ -86,7 +86,7 @@ const moveToWeek = function (date, todo){
         userDateArray[1] - 1,
         userDateArray[2]
       );
-      if (first <= userDate.getDate() && last >= userDate.getDate()) {      
+      if (first <= userDate.getDate() && last >= userDate.getDate()) {     
         App.projectShelf.getStaticProject()[1].todos.push(todo)
         return;
       }

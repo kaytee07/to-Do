@@ -1,5 +1,5 @@
 import { MainObjectBag, Project, Tasks } from "../objects"
-import { createFolder, createNonStaticFolder, todayOrThisWeek } from "./controllers";
+import { createFolder,  todayOrThisWeek, moveToWeek, moveToToday} from "./controllers";
 
 const App = (()=>{
 const projectShelf = MainObjectBag();
@@ -15,12 +15,13 @@ function loadStorageItemsToProject(){
         JSON.parse(localStorage.getItem("projects")).map((val) => {
           projectShelf.addNonStaticProject(val);
         });
+        
   }
 }
 
 createStaticFolders();
 loadStorageItemsToProject();
-// todayOrThisWeek()
+
 
 
  return{

@@ -46,7 +46,10 @@ const DOM =(()=>{
       const projectPage = document.querySelector(".to-do_box");
       const projectItem = document.querySelector(".todos");
       let markUp1 = `
-        <div class="to-do_title">
+      <div class="side-menu">
+                    <i class="bi bi-list"></i>
+               </div>
+        <div class="to-do_title">      
                     <h2>${project.name}</h2>
                </div>
        `;
@@ -93,19 +96,21 @@ const DOM =(()=>{
 
     function restoreProjectPageToDefault(){
       document.querySelector(".to-do_box").innerHTML = `
+       <div class="side-menu">
+                    <i class="bi bi-list"></i>
+               </div>
         <div class="to-do_title">
-                    <h2>Project</h2>
+                    <h2>.to-Do</h2>
                </div>
                <ul class="todos">
                   
                </ul>
-      `
+      `;
       return document.querySelector(".to-do_box");
       
     }
 
     function homePageDecison(markup) {
-      console.log(markup)
       document.querySelector(".display_to-do").appendChild(markup);
     }
 
@@ -164,8 +169,7 @@ const DOM =(()=>{
       let closeModal = document.querySelectorAll(".bi-x-circle")
       let folderInput = document.querySelector(".add-folder");
       let todoName = document.querySelector(".add-to-do");
-      let urgency = document.querySelector(".urgency");
-      let folderData = document.querySelector(".toFolder");
+      let sidemenu = document.querySelector(".side-menu");
 
   
       
@@ -293,6 +297,7 @@ const DOM =(()=>{
 
       //click to view folders in this week and today
       staticFolders.addEventListener("click", function(e){
+        todayOrThisWeek()
         homePageDecison(
           projectPageUI(App.projectShelf.findStaticProject(e.target.id))
         );    
@@ -336,7 +341,6 @@ const DOM =(()=>{
      //done to do Item
      document.addEventListener("click", function(e){   
        if (e.target && e.target.classList.value == "bi bi-circle") {
-         console.log(e.target.nextElementSibling.innerHTML);
          deleteTodoFromNonStaticFolder(e.target.parentElement.parentElement.getAttribute("folder"),
             e.target.parentElement.parentElement.id
          )
@@ -389,7 +393,29 @@ const DOM =(()=>{
          homePageDecison(restoreProjectPageToDefault())
        }
       })
-  
+
+      //open side menu phone view
+      sidemenu.addEventListener("click", function(){
+        document.querySelector(".to-do_app").classList.toggle("openmenu")
+      })
+      
+      document.addEventListener("click", function (e) {
+        if (e.target && e.target.classList.value == "side-menu") {
+          document.querySelector(".to-do_app").classList.add("openmenu");
+        }
+      });
+
+       document.addEventListener("click", function (e) {
+         if (e.target && e.target.classList.value == "bi bi-list") {
+           document.querySelector(".to-do_app").classList.add("openmenu");
+         }
+       });
+
+
+      //close side menu
+      document.querySelector(".close_side-menu").addEventListener("click", function(){
+          document.querySelector(".to-do_app").classList.remove("openmenu");
+      })
     }
 
 
