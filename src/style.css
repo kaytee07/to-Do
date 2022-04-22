@@ -544,6 +544,10 @@
     .to-do_app{
         grid-template-columns: 0px auto;
     }
+
+    .bi-list{
+        transform: scale3d(1.5, 1.5, 1);
+    }
     .side-menu {
         display: flex;
         color: #e27413;
