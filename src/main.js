@@ -1,35 +1,31 @@
-import { MainObjectBag, Project, Tasks } from "../objects"
-import { createFolder,  todayOrThisWeek, moveToWeek, moveToToday} from "./controllers";
+import {mainObjectBag, project} from '../objects';
+import {
+  createFolder,
+} from './controllers';
 
-const App = (()=>{
-const projectShelf = MainObjectBag();
+const App = (() => {
+  const projectShelf = mainObjectBag();
 
-function createStaticFolders(){
-  const today = Project("Today");
-  const all7Days = Project("This week");
-  createFolder([today, all7Days],projectShelf)
-}
-
-function loadStorageItemsToProject(){
-  if (localStorage.getItem("projects")){
-        JSON.parse(localStorage.getItem("projects")).map((val) => {
-          projectShelf.addNonStaticProject(val);
-        });
-        
+function createStaticFolders() {
+    const today = project('Today');
+    const all7Days = project('This week');
+    createFolder([today, all7Days], projectShelf);
   }
-}
 
-createStaticFolders();
-loadStorageItemsToProject();
+  function loadStorageItemsToProject() {
+    if (localStorage.getItem('projects')) {
+      JSON.parse(localStorage.getItem('projects')).map((val) => {
+        projectShelf.addNonStaticProject(val);
+      });
+    }
+  }
 
+  createStaticFolders();
+  loadStorageItemsToProject();
 
-
- return{
-   projectShelf
- }
-
-
-
-})()
+  return {
+    projectShelf,
+  };
+})();
 
 export default App;

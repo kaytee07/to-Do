@@ -1,7 +1,6 @@
-export const Project = function (name) {
-  let projectName = name;
-  let todos = [];
-
+export const project = function (addname) {
+  const name = addname;
+  const todos = [];
 
   const findTodo = function (index) {
     return todos[index];
@@ -14,48 +13,46 @@ export const Project = function (name) {
   };
 };
 
-export const Tasks = function(todo){
-  let task =  todo;
+export const tasks = function (todo) {
+  const task = todo;
   let priority = null;
-  let dueTimeAndDate = {
-    time:null,
-    date:null
-  }
-  let projectId = null
+  const dueTimeAndDate = {
+    time: null,
+    date: null,
+  };
+  const projectId = null;
 
-  const getProjectId = function(){
-    return projectId
-  }
+  const getProjectId = function () {
+    return projectId;
+  };
 
-  const addDueTimeAndDate = function(time, date){
+  const addDueTimeAndDate = function (time, date) {
     dueTimeAndDate.time = time;
-    dueTimeAndDate.date = date
-  }
+    dueTimeAndDate.date = date;
+  };
 
-  const setPriority = function(info){
-    priority = info
-  }
+  const setPriority = function (info) {
+    priority = info;
+  };
 
-  return{
+  return {
     task,
     priority,
     dueTimeAndDate,
     projectId,
     addDueTimeAndDate,
     setPriority,
-    getProjectId
-  }
+    getProjectId,
+  };
+};
 
-}
-
-export const MainObjectBag = function(){
-  let staticProject = [];
-  const nonStaticProject = []
+export const mainObjectBag = function () {
+  const staticProject = [];
+  const nonStaticProject = [];
 
   const getStaticProject = function () {
     return staticProject;
   };
- 
 
   const getNonStaticProject = function () {
     return nonStaticProject;
@@ -68,15 +65,14 @@ export const MainObjectBag = function(){
   const findNonStaticProject = function (index) {
     return nonStaticProject[index];
   };
-  
-  const addStaticProject = (project) => {
-    staticProject.push(project)
-  }
 
-  const addNonStaticProject = function(project) {
-    nonStaticProject.push(project)
-  }
-  
+  const addStaticProject = (project) => {
+    staticProject.push(project);
+  };
+
+  const addNonStaticProject = function (project) {
+    nonStaticProject.push(project);
+  };
 
   return {
     getStaticProject,
@@ -85,10 +81,5 @@ export const MainObjectBag = function(){
     addStaticProject,
     addNonStaticProject,
     getNonStaticProject,
-  }
-  
-}
-
-
-
-
+  };
+};
