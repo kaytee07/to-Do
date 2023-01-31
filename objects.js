@@ -13,6 +13,18 @@ export const project = function (addname) {
   };
 };
 
+export const notifs = function (addname, time)
+{
+  const name = addname;
+  const countdown = time;
+
+  return setTimeout(()=>{
+    new Notification("To-do reminder", {
+      body: name,
+    });
+  }, countdown)
+}
+
 export const tasks = function (todo) {
   const task = todo;
   let priority = null;

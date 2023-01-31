@@ -23,6 +23,7 @@ const DOM = (() => {
     shortcut.innerHTML = markUp;
   }
 
+
   function nonStaticUI(data) {
     const project = document.querySelector(".non-static");
 
@@ -152,6 +153,7 @@ const DOM = (() => {
       removeIDSFromForm();
     }
     modal.classList.remove("active");
+    cover.classList.remove("show_caver");
   }
 
   function addEvent(elem) {
@@ -179,6 +181,7 @@ const DOM = (() => {
     const folderInput = document.querySelector(".add-folder");
     const todoName = document.querySelector(".add-to-do");
     const sidemenu = document.querySelector(".side-menu");
+    const cover = document.querySelector(".caver")
 
     folder.addEventListener("click", function () {
       productMod.classList.add("active");
@@ -198,7 +201,13 @@ const DOM = (() => {
 
     addTask.addEventListener("click", function () {
       modalTask.classList.add("active");
+      cover.classList.add("show_caver");
     });
+
+    cover.addEventListener("click", function(){
+      modalTask.classList.remove("active");
+      cover.classList.remove("show_caver");
+    })
 
     // create to do Item
     addTaskBtn.addEventListener("click", function () {
@@ -242,6 +251,7 @@ const DOM = (() => {
       removeIDSFromForm();
       restoreTodoForm();
       modalTask.classList.remove("active");
+      cover.classList.remove("show_caver");
     });
 
     // show due date modal
@@ -353,7 +363,7 @@ const DOM = (() => {
         );
 
         deleteFromStaticFolders(e.target.nextElementSibling.innerHTML);
-
+          console.log(e.target.parentElement.parentElement.parentElement)
         // saveToLocalStorage();
 
         homePageDecison(

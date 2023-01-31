@@ -1,9 +1,12 @@
 import {project} from '../objects';
+
+
 import App from './main';
 
 // export const pushToMain = function(arr){
 //     arr.map((items))
 // }
+
 
 export const createFolder = function(arr, shelf) {
   arr.map((val) => shelf.addStaticProject(val));
@@ -20,6 +23,7 @@ export const pushTodoToProject = function(index, project) {
 export const innerHtml = function(target, input) {
   target.innerHTML = input;
 };
+
 
 export const dateCheck = function(date, time) {
   const userDateArray = date.split('-');
@@ -56,6 +60,12 @@ export const todayOrThisWeek = function() {
   }
 };
 
+export const notifs = function(todo) {
+      new Notification("Task to complete today", {
+        icon: "/path/to/icon.png",
+        body: todo,
+      });
+}
 
 export const moveToToday = function(date, todo) {
   const userDateArray = date.split('-');
@@ -67,6 +77,11 @@ export const moveToToday = function(date, todo) {
   );
   if (todayDate.toDateString() == userDate.toDateString()) {
     App.projectShelf.getStaticProject()[0].todos.push(todo);
+    // App.projectShelf.getStaticProject()[0].todos.map(todo=>{
+    //   notifs(todo.task);
+    // });
+    console.log(todo.task);
+    notifs(todo.task);
     return;
   }
 
