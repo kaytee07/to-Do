@@ -92,9 +92,10 @@ export const moveToWeek = function(date, todo) {
   return;
 };
 
-
+//  take position of folder and todo, runs through code befpre deleting
 export const deleteTodoFromNonStaticFolder = function(foldId, todoId) {
   const array = App.projectShelf.findNonStaticProject(foldId).todos;
+  console.log(array)
   if (todoId > -1) {
     array.splice(todoId, 1);
   }
@@ -103,7 +104,6 @@ export const deleteTodoFromNonStaticFolder = function(foldId, todoId) {
 export const deleteFromStaticFolders = function(name) {
   const array = App.projectShelf.getStaticProject();
   for (let i = 0; i < array.length; i++) {
-    console.log(array[i].todos.length);
     for (let j = 0; j < array[i].todos.length; j++) {
       if (array[i].todos[j].task === name) {
         array[i].todos.splice(j, 1);
@@ -117,6 +117,6 @@ export const deleteFolder = function(id) {
   array.splice(id, 1);
 };
 
-export const saveToLocalStorage = function() {
-  localStorage.setItem('projects', SON.stringify(App.projectShelf.getNonStaticProject()));
-};
+// export const saveToLocalStorage = function() {
+//   localStorage.setItem('projects', SON.stringify(App.projectShelf.getNonStaticProject()));
+// };

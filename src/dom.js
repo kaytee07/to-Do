@@ -9,7 +9,6 @@ import {
   deleteTodoFromNonStaticFolder,
   deleteFromStaticFolders,
   deleteFolder,
-  saveToLocalStorage,
 } from "./controllers";
 
 const DOM = (() => {
@@ -238,7 +237,7 @@ const DOM = (() => {
         )
       );
 
-      saveToLocalStorage();
+      // saveToLocalStorage();
       todayOrThisWeek();
       removeIDSFromForm();
       restoreTodoForm();
@@ -355,7 +354,7 @@ const DOM = (() => {
 
         deleteFromStaticFolders(e.target.nextElementSibling.innerHTML);
 
-        saveToLocalStorage();
+        // saveToLocalStorage();
 
         homePageDecison(
           projectPageUI(
@@ -370,6 +369,7 @@ const DOM = (() => {
     // delete to do item
     document.addEventListener("click", function (e) {
       if (e.target && e.target.classList.value == "bi bi-trash3-fill") {
+        console.log( e.target.parentElement.parentElement.getAttribute("folder"),e.target.parentElement.parentElement.id)
         deleteTodoFromNonStaticFolder(
           e.target.parentElement.parentElement.getAttribute("folder"),
           e.target.parentElement.parentElement.id
@@ -380,7 +380,7 @@ const DOM = (() => {
             .lastElementChild.innerHTML
         );
 
-        saveToLocalStorage();
+        // saveToLocalStorage();
 
         homePageDecison(
           projectPageUI(
@@ -395,8 +395,9 @@ const DOM = (() => {
     // delete Folder
     document.addEventListener("click", function (e) {
       if (e.target && e.target.classList.value == "bi bi-trash3-fill trush") {
+        console.log(e.target)
         deleteFolder(e.target.parentElement.id);
-        saveToLocalStorage();
+        // saveToLocalStorage();
         render();
         homePageDecison(restoreProjectPageToDefault());
       }

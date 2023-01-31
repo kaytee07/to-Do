@@ -19,9 +19,13 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
+    "amadeus": "^6.0.0",
     "bootstrap-icons": "^1.8.1",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
-    "style-loader": "^3.3.1"
+    "https-browserify": "^1.0.0",
+    "stream-http": "^3.2.0",
+    "style-loader": "^3.3.1",
+    "util": "^0.12.5"
   }
 }
