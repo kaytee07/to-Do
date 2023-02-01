@@ -9,7 +9,10 @@ import {
   deleteTodoFromNonStaticFolder,
   deleteFromStaticFolders,
   deleteFolder,
+  checkTodaysNotifs,
+  saveToLocalStorage
 } from "./controllers";
+
 
 const DOM = (() => {
   function shortcutUI(statics) {
@@ -50,7 +53,7 @@ const DOM = (() => {
     folders.innerHTML = markUp;
   }
 
-  function projectPageUI(project) {
+  function projectPageUI(project, name) {
     const projectPage = document.querySelector(".to-do_box");
     const projectItem = document.querySelector(".todos");
     const markUp1 = `
@@ -58,7 +61,7 @@ const DOM = (() => {
                     <i class="bi bi-list"></i>
                </div>
         <div class="to-do_title">      
-                    <h2>${project.name}</h2>
+                    <h2>${name ? name : project.name}</h2>
                </div>
        `;
 
@@ -246,12 +249,13 @@ const DOM = (() => {
         )
       );
 
-      // saveToLocalStorage();
+      saveToLocalStorage();
       todayOrThisWeek();
       removeIDSFromForm();
       restoreTodoForm();
       modalTask.classList.remove("active");
       cover.classList.remove("show_caver");
+      checkTodaysNotifs();
     });
 
     // show due date modal
@@ -364,7 +368,7 @@ const DOM = (() => {
 
         deleteFromStaticFolders(e.target.nextElementSibling.innerHTML);
           console.log(e.target.parentElement.parentElement.parentElement)
-        // saveToLocalStorage();
+          saveToLocalStorage();
 
         homePageDecison(
           projectPageUI(
@@ -379,7 +383,8 @@ const DOM = (() => {
     // delete to do item
     document.addEventListener("click", function (e) {
       if (e.target && e.target.classList.value == "bi bi-trash3-fill") {
-        console.log( e.target.parentElement.parentElement.getAttribute("folder"),e.target.parentElement.parentElement.id)
+        console.log( e.target.parentElement.parentElement.getAttribute("folder"),e.target.parentElement.parentElement.parentElement.parentElement.children[2].innerText)
+        const child = e.target.parentElement.parentElement.parentElement.parentElement.children[2].innerText
         deleteTodoFromNonStaticFolder(
           e.target.parentElement.parentElement.getAttribute("folder"),
           e.target.parentElement.parentElement.id
@@ -390,8 +395,20 @@ const DOM = (() => {
             .lastElementChild.innerHTML
         );
 
-        // saveToLocalStorage();
+        saveToLocalStorage();
 
+        if(child == "Today")
+        {
+          homePageDecison(
+            projectPageUI(
+              App.projectShelf.findNonStaticProject(
+                e.target.parentElement.parentElement.getAttribute("folder")
+              ),
+              child
+            )
+          );
+        }else
+        {
         homePageDecison(
           projectPageUI(
             App.projectShelf.findNonStaticProject(
@@ -399,6 +416,7 @@ const DOM = (() => {
             )
           )
         );
+            }
       }
     });
 
@@ -407,7 +425,7 @@ const DOM = (() => {
       if (e.target && e.target.classList.value == "bi bi-trash3-fill trush") {
         console.log(e.target)
         deleteFolder(e.target.parentElement.id);
-        // saveToLocalStorage();
+        saveToLocalStorage();
         render();
         homePageDecison(restoreProjectPageToDefault());
       }
@@ -445,6 +463,7 @@ const DOM = (() => {
   }
 
   const init = (_) => {
+    checkTodaysNotifs();
     render();
     listeners();
   };

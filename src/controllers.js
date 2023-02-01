@@ -67,6 +67,13 @@ export const notifs = function(todo) {
       });
 }
 
+export const checkTodaysNotifs = function() {
+  console.log("dog");
+  App.projectShelf.getStaticProject()[0].todos.map(todo=>{
+    notifs(todo.task);
+  });
+}
+
 export const moveToToday = function(date, todo) {
   const userDateArray = date.split('-');
   const todayDate = new Date();
@@ -77,14 +84,8 @@ export const moveToToday = function(date, todo) {
   );
   if (todayDate.toDateString() == userDate.toDateString()) {
     App.projectShelf.getStaticProject()[0].todos.push(todo);
-    // App.projectShelf.getStaticProject()[0].todos.map(todo=>{
-    //   notifs(todo.task);
-    // });
-    console.log(todo.task);
-    notifs(todo.task);
     return;
   }
-
   return;
 };
 
@@ -132,6 +133,7 @@ export const deleteFolder = function(id) {
   array.splice(id, 1);
 };
 
-// export const saveToLocalStorage = function() {
-//   localStorage.setItem('projects', SON.stringify(App.projectShelf.getNonStaticProject()));
-// };
+export const saveToLocalStorage = function() {
+  localStorage.setItem("projects", JSON.stringify(App.projectShelf.getNonStaticProject()));
+  todayOrThisWeek();
+};
