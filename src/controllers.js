@@ -61,14 +61,20 @@ export const todayOrThisWeek = function() {
 };
 
 export const notifs = function(todo) {
+  Notification.requestPermission().then(function (permission) {
+    if (permission === "granted") {
+      console.log("Permission granted to display notifications.");
       new Notification("Task to complete today", {
         icon: "/path/to/icon.png",
         body: todo,
       });
+    } else {
+      console.log("Permission denied to display notifications.");
+    }
+  });
 }
 
 export const checkTodaysNotifs = function() {
-  console.log("dog");
   App.projectShelf.getStaticProject()[0].todos.map(todo=>{
     notifs(todo.task);
   });
@@ -111,7 +117,6 @@ export const moveToWeek = function(date, todo) {
 //  take position of folder and todo, runs through code befpre deleting
 export const deleteTodoFromNonStaticFolder = function(foldId, todoId) {
   const array = App.projectShelf.findNonStaticProject(foldId).todos;
-  console.log(array)
   if (todoId > -1) {
     array.splice(todoId, 1);
   }

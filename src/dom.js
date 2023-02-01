@@ -383,7 +383,6 @@ const DOM = (() => {
     // delete to do item
     document.addEventListener("click", function (e) {
       if (e.target && e.target.classList.value == "bi bi-trash3-fill") {
-        console.log( e.target.parentElement.parentElement.getAttribute("folder"),e.target.parentElement.parentElement.parentElement.parentElement.children[2].innerText)
         const child = e.target.parentElement.parentElement.parentElement.parentElement.children[2].innerText
         deleteTodoFromNonStaticFolder(
           e.target.parentElement.parentElement.getAttribute("folder"),
