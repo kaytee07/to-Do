@@ -24,6 +24,7 @@ export const innerHtml = function(target, input) {
   target.innerHTML = input;
 };
 
+let notification = [];
 
 export const dateCheck = function(date, time) {
   const userDateArray = date.split('-');
@@ -60,24 +61,43 @@ export const todayOrThisWeek = function() {
   }
 };
 
-export const notifs = function(todo) {
-  Notification.requestPermission().then(function (permission) {
-    if (permission === "granted") {
-      console.log("Permission granted to display notifications.");
-      new Notification("Task to complete today", {
-        icon: "/path/to/icon.png",
-        body: todo,
-      });
-    } else {
-      console.log("Permission denied to display notifications.");
-    }
-  });
+function removeTodo(names)
+{
+  notification = notification.filter(todo=>{
+    return names != todo.task
+  })
+ console.log(notification)
 }
 
-export const checkTodaysNotifs = function() {
-  App.projectShelf.getStaticProject()[0].todos.map(todo=>{
-    notifs(todo.task);
+export const notifs = function(todo) {
+  const date = new Date();
+  const targetDate = new Date();
+  const nowTime = todo.dueTimeAndDate.time.split(":")
+  targetDate.setHours(nowTime[0], nowTime[1], 0 , 0)
+  if (date.getTime() >= targetDate.getTime()) 
+  {
+    Notification.requestPermission().then(function (permission) {
+      if (permission === "granted") {
+        console.log("Permission granted to display notifications.");
+        new Notification("Task to complete today", {
+          icon: "/path/to/icon.png",
+          body: todo.task,
+        });
+        removeTodo(todo.task)
+      } else {
+        console.log("Permission denied to display notifications.");
+      }
+    });
+  }
+}
+
+export const checkTodaysNotifs = function(t) {
+  let nowTime=[];
+  notification.map(todo=>{
+   nowTime = todo.dueTimeAndDate.time.split(":")
+    notifs(todo);
   });
+  return nowTime
 }
 
 export const moveToToday = function(date, todo) {
@@ -90,6 +110,7 @@ export const moveToToday = function(date, todo) {
   );
   if (todayDate.toDateString() == userDate.toDateString()) {
     App.projectShelf.getStaticProject()[0].todos.push(todo);
+    notification.push(todo)
     return;
   }
   return;
@@ -142,3 +163,4 @@ export const saveToLocalStorage = function() {
   localStorage.setItem("projects", JSON.stringify(App.projectShelf.getNonStaticProject()));
   todayOrThisWeek();
 };
+

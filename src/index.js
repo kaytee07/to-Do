@@ -1,26 +1,13 @@
 import "./style.css";
 import DOM from "./dom";
+import {checkTodaysNotifs, todayOrThisWeek} from "./controllers"
 require("bootstrap-icons/font/bootstrap-icons.css");
 
 DOM.init();
 
-const Amadeus = require("amadeus");
+todayOrThisWeek();
 
- const amadeus = new Amadeus({
-   clientId: "DDUJUvAhRb34GcvuA6SuY1z5vnfigCYa",
-   clientSecret: "BaPMQAXG5GTYlf3i",
- });
+setInterval(function() {
+checkTodaysNotifs(); 
+}, 1000); // check every second
 
-amadeus.shopping.flightOffersSearch
-  .get({
-    originLocationCode: "SYD",
-    destinationLocationCode: "BKK",
-    departureDate: "2022-06-01",
-    adults: "2",
-  })
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (responseError) {
-    console.log(responseError.code);
-  });

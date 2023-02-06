@@ -318,7 +318,6 @@ const DOM = (() => {
 
     // click to view folders in this week and today
     staticFolders.addEventListener("click", function (e) {
-      todayOrThisWeek();
       homePageDecison(
         projectPageUI(App.projectShelf.findStaticProject(e.target.id))
       );
@@ -466,6 +465,8 @@ const DOM = (() => {
     render();
     listeners();
   };
+
+
 
   return {
     init,
